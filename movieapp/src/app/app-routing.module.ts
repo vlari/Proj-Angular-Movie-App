@@ -9,7 +9,7 @@ const appRoutes: Routes = [
       import('./navigation/navigation.module')
       .then(m => m.NavigationModule)
   },
-  { path: '', redirectTo: '/navigation', pathMatch: 'full' },
+  { path: '', redirectTo: 'navigation', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 

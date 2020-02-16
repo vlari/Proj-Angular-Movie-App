@@ -52,7 +52,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   navigateHome() {
-    this.router.navigate(["/navigation/dashboard"]);
+    this.router.navigate(["/navigation/news"]);
     return false;
   }
 }

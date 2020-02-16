@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbButtonModule, NbMenuModule, NbActionsModule, NbSearchModule, NbUserModule, NbIconModule, NbContextMenuModule } from '@nebular/theme';
 import { SharedModule } from '../shared/shared.module';
+import { NewsModule } from '../news/news.module';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { SharedModule } from '../shared/shared.module';
     NbUserModule,
     NbIconModule,
     NbContextMenuModule,
-    SharedModule
+    SharedModule,
+    NewsModule
   ]
 })
 export class NavigationModule { }
