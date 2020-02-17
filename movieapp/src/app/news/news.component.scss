@@ -1,0 +1,47 @@
+
+.headlines-container {
+    height: 100%;
+    
+    .news-form {
+
+        form {
+            nb-icon {
+                position: relative;
+                left: 10px;
+                top: 2px;
+                font-size: 24px;
+            }
+        }
+    }
+
+    .card-list {
+        nb-card {
+            //width: 50%;
+            height: 612px;
+            max-height: 612px;
+    
+            nb-card-header {
+                img {
+                    max-width: 100%;
+                    height: auto;
+                }
+            }
+    
+            nb-card-body {
+                .article-date {
+                    color: #fa0;
+                }
+    
+                h4 {
+                    margin-top: 0px;
+                }
+            }
+    
+            nb-card-footer {
+                a {
+                    float: right;
+                }
+            }
+        }
+    }
+}

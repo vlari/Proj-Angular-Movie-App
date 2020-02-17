@@ -10,5 +10,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Trailers',
         icon: 'play-circle-outline',
         link: '/navigation/'
+    },
+    {
+        title: 'Links',
+        icon: 'plus-circle-outline',
+        link: '/navigation/'
     }
 ];

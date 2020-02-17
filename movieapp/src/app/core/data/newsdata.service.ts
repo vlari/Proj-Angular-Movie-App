@@ -13,6 +13,10 @@ import { NewsResponse } from 'src/app/shared/models/news-response.model';
 export class NewsdataService {
   newsApiKey: string;
   baseUri: string = 'https://newsapi.org/v2';
+  headers: HttpHeaders = new HttpHeaders({
+    'Accept': 'application/json',
+    'x-api-key': this.newsApiKey
+  });
 
   constructor(private http: HttpClient) { 
     this.newsApiKey = environment.newsApiKey;
@@ -20,13 +24,8 @@ export class NewsdataService {
 
   // Get latest headlines.
   getTopHeadlines(): Observable<NewsResponse | HttpheadlineError> {
-    let headers: HttpHeaders = new HttpHeaders({
-      'Accept': 'application/json',
-      'x-api-key': this.newsApiKey
-    });
-
     return this.http.get<NewsResponse>(`${this.baseUri}/top-headlines?category=entertainment&country=us`, {
-      headers: headers
+      headers: this.headers
     })
     .pipe(
       catchError(err => this.handleHttpError(err))
@@ -34,6 +33,14 @@ export class NewsdataService {
   }
 
   // Get filtered news articles.
+  getFilteredHeadlines(filterText: string): Observable<NewsResponse | HttpheadlineError> {
+    return this.http.get<NewsResponse>(`${this.baseUri}/top-headlines?q=${filterText}category=entertainment&country=us`, {
+      headers: this.headers
+    })
+    .pipe(
+      catchError(err => this.handleHttpError(err))
+    );
+  }
 
   private handleHttpError(error: HttpErrorResponse): Observable<NewsResponse>{
     let headLineError = new HttpheadlineError();

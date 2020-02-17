@@ -2,12 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { NewsComponent } from './news.component';
+import { NbCardModule, NbButtonModule, NbLayoutModule, NbInputModule, NbIconModule } from '@nebular/theme';
 
 
 @NgModule({
   declarations: [NewsComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    NbCardModule,
+    NbButtonModule,
+    NbLayoutModule,
+    NbInputModule,
+    NbIconModule
   ]
 })
 export class NewsModule { }
