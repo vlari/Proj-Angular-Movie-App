@@ -1,6 +1,6 @@
 import { NewsSource } from './news-source.model';
 
-export class HeadLine {
+export class News {
     source: NewsSource;
     author: string;
     title: string;

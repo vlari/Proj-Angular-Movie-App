@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from "rxjs";
 import { catchError } from "rxjs/operators";
-import { HeadLine } from 'src/app/shared/models/headline.model';
-import { HttpheadlineError } from 'src/app/shared/models/httpheadlineerror';
+import { HttpNewsError } from 'src/app/shared/models/httpnewserror';
 import { NewsdataService } from '../newsdata.service';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { NewsResponse } from 'src/app/shared/models/news-response.model';
@@ -10,13 +9,13 @@ import { NewsResponse } from 'src/app/shared/models/news-response.model';
 @Injectable({
     providedIn: 'root'
 })
-export class HeadlineResolverService implements Resolve<NewsResponse | HttpheadlineError> {
+export class HeadlineResolverService implements Resolve<NewsResponse | HttpNewsError> {
 
     constructor(private dataService: NewsdataService) {
     }
 
-    resolve(route: ActivatedRouteSnapshot): Observable<NewsResponse | HttpheadlineError> {
-        return this.dataService.getTopHeadlines()
+    resolve(route: ActivatedRouteSnapshot): Observable<NewsResponse | HttpNewsError> {
+        return this.dataService.getNews()
             .pipe(
                 catchError(err => of(err))
             );

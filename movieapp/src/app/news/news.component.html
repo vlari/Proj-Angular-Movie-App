@@ -14,20 +14,31 @@
         </nb-card>
     </div>
     <div class="card-list row">
-        <div class="col-md-6" *ngFor="let info of mockData">
-            <nb-card>
-                <nb-card-header>
-                    <img src="{{info.urlToImage}}" class="img-fluid" alt="">
-                </nb-card-header>
-                <nb-card-body>
-                    <p class="article-date">{{ info.publishedAt | date:'shortDate'}}</p>
-                    <h4>{{ info.title }}</h4>
-                    <p>{{ info.description }} ({{ info.source.name }})</p>
-                </nb-card-body>
-                <nb-card-footer>
-                    <a (click)="goNewsLink(info.url)" href="#" nbButton hero status="warning">See</a>
-                </nb-card-footer>
-            </nb-card>
+        <div class="col-md-12">
+            <nb-list  nbInfiniteList
+                    listenWindowScroll
+                    [threshold]="500"
+                    (bottomThreshold)="loadNext()">
+                <nb-list-item *ngFor="let info of news">
+                    <nb-card>
+                        <nb-card-body>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="{{info.urlToImage}}" class="img-fluid" alt="">
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="article-date">{{ info.publishedAt | date:'shortDate'}}</p>
+                                    <h4>{{ info.title }}</h4>
+                                    <p>{{ info.description }} ({{ info.source.name }})</p>
+                                </div>
+                            </div>
+                        </nb-card-body>
+                        <nb-card-footer>
+                            <a (click)="goNewsLink(info.url)" href="#" nbButton hero status="warning">See</a>
+                        </nb-card-footer>
+                    </nb-card>
+                </nb-list-item>
+            </nb-list>
         </div>
 
     </div>

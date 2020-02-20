@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { NewsdataService } from "../core/data/newsdata.service";
-import { HeadLine } from "../shared/models/headline.model";
+import { News } from "../shared/models/news.model";
 import { ActivatedRoute } from "@angular/router";
-import { HttpheadlineError } from "../shared/models/httpheadlineerror";
+import { HttpNewsError } from "../shared/models/httpnewserror";
 import { NewsResponse } from "../shared/models/news-response.model";
 import { NewsSource } from '../shared/models/news-source.model';
 
@@ -12,7 +12,8 @@ import { NewsSource } from '../shared/models/news-source.model';
   styleUrls: ["./news.component.scss"]
 })
 export class NewsComponent implements OnInit {
-  headLines: HeadLine[];
+  headLines: News[];
+  news: News[];
   mockData: any = [
     {
       source: {
@@ -68,6 +69,11 @@ export class NewsComponent implements OnInit {
     }
   ];
 
+  placeholders = [];
+  pageSize = 10;
+  pageToLoadNext = 1;
+  loading = false;
+
   constructor(
     private newsDataService: NewsdataService,
     private route: ActivatedRoute
@@ -81,13 +87,13 @@ export class NewsComponent implements OnInit {
     //     }
     //   );
 
-    let resolvedData: NewsResponse | HttpheadlineError = this.route.snapshot
+    let resolvedData: NewsResponse | HttpNewsError = this.route.snapshot
       .data["resolvedHeadlines"];
 
-    if (resolvedData instanceof HttpheadlineError) {
-      console.log("Error");
+    if (resolvedData instanceof HttpNewsError) {
+      console.log(resolvedData);
     } else {
-      this.headLines = <HeadLine[]>resolvedData.articles;
+      this.news = <News[]>resolvedData.articles;
       console.log(this.headLines);
     }
   }
@@ -97,6 +103,20 @@ export class NewsComponent implements OnInit {
       .subscribe(
         (data: NewsResponse) => this.headLines = data.articles
       );
+  }
+
+  loadNext() {
+    if (this.loading) { return }
+
+    this.loading = true;
+    this.placeholders = new Array(this.pageSize);
+    this.newsDataService.getNews(this.pageSize, this.pageToLoadNext)
+      .subscribe(news => {
+        this.placeholders = [];
+        this.news.push(...news);
+        this.loading = false;
+        this.pageToLoadNext++;
+      });
   }
 
   goNewsLink(url: string): void {

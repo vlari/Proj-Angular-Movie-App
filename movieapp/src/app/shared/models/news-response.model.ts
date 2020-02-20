@@ -1,7 +1,7 @@
-import { HeadLine } from './headline.model';
+import { News } from './news.model';
 
 export class NewsResponse {
-    articles: HeadLine[];
+    articles: News[];
     status: string;
     totalResults: number;
 }
