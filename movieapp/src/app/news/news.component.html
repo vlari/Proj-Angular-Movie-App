@@ -2,41 +2,47 @@
     <div class="news-form">
         <nb-card>
             <nb-card-body>
-                <form action="">
+                <form #filterForm="ngForm">
                     <div class="row">
                         <div class="col-md-6 offset-md-4">
-                            <input type="text" class="align-middle" nbInput status="warning" placeholder="Search News">
-                            <nb-icon icon="search-outline" status="warning"></nb-icon>
+                            <input type="text" 
+                            class="align-middle" 
+                            nbInput 
+                            status="warning" 
+                            name="filterText"
+                            [(ngModel)]="filterText"
+                            (input)="onFilterChange()" 
+                            placeholder="Search News"
+                            required>
+                            <button (click)="filterNews()" 
+                            class="filter-Button"
+                            nbButton 
+                            status="warning" 
+                            [disabled]="!filterForm.form.valid">
+                                <nb-icon icon="search-outline"></nb-icon>
+                            </button>
                         </div>
                     </div>
                 </form>
             </nb-card-body>
         </nb-card>
     </div>
+    <div *ngIf="isFiltered" class="headline-list ">
+        <div class="">
+            <h2 class="container-title">Top Headlines</h2>
+            <ul class="row">
+                <li class="col-md-4" *ngFor="let headline of headLines">
+                    <app-headlinepost [headLinePost]="headline"></app-headlinepost>
+                </li>
+            </ul>
+        </div>
+    </div>
     <div class="card-list row">
         <div class="col-md-12">
-            <nb-list  nbInfiniteList
-                    listenWindowScroll
-                    [threshold]="500"
-                    (bottomThreshold)="loadNext()">
+            <h2 class="container-title">News</h2>
+            <nb-list nbInfiniteList listenWindowScroll [threshold]="500" (bottomThreshold)="loadNext()">
                 <nb-list-item *ngFor="let info of news">
-                    <nb-card>
-                        <nb-card-body>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <img src="{{info.urlToImage}}" class="img-fluid" alt="">
-                                </div>
-                                <div class="col-md-6">
-                                    <p class="article-date">{{ info.publishedAt | date:'shortDate'}}</p>
-                                    <h4>{{ info.title }}</h4>
-                                    <p>{{ info.description }} ({{ info.source.name }})</p>
-                                </div>
-                            </div>
-                        </nb-card-body>
-                        <nb-card-footer>
-                            <a (click)="goNewsLink(info.url)" href="#" nbButton hero status="warning">See</a>
-                        </nb-card-footer>
-                    </nb-card>
+                    <app-newspost [post]="info"></app-newspost>
                 </nb-list-item>
             </nb-list>
         </div>

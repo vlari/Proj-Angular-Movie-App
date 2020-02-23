@@ -9,13 +9,13 @@ import { NewsResponse } from 'src/app/shared/models/news-response.model';
 @Injectable({
     providedIn: 'root'
 })
-export class HeadlineResolverService implements Resolve<NewsResponse | HttpNewsError> {
+export class NewsResolverService implements Resolve<NewsResponse | HttpNewsError> {
 
     constructor(private dataService: NewsdataService) {
     }
 
     resolve(route: ActivatedRouteSnapshot): Observable<NewsResponse | HttpNewsError> {
-        return this.dataService.getTopHeadlines()
+        return this.dataService.getNews()
             .pipe(
                 catchError(err => of(err))
             );

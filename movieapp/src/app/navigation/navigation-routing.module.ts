@@ -4,13 +4,21 @@ import { NavigationComponent } from './navigation.component';
 import { PageNotFoundComponent } from '../shared/page-not-found/page-not-found.component';
 import { NewsComponent } from '../news/news.component';
 import { HeadlineResolverService } from '../core/data/resolvers/headline-resolver.service';
+import { NewsResolverService } from '../core/data/resolvers/news-resolver.service';
 
 
 const routes: Routes = [{
   path: '',
   component: NavigationComponent,
   children: [
-    { path: 'news', component: NewsComponent, resolve: {resolvedHeadlines: HeadlineResolverService} },
+    { path: 'news', 
+      component: NewsComponent, 
+      resolve: 
+        {
+          resolvedNews: NewsResolverService,
+          resolvedHeadlines: HeadlineResolverService
+        } 
+    },
     { path: '', pathMatch: 'full', redirectTo: 'news' },
     { path: '**', component: PageNotFoundComponent }
   ]}

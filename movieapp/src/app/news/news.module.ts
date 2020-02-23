@@ -3,10 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { NewsComponent } from './news.component';
 import { NbCardModule, NbButtonModule, NbLayoutModule, NbInputModule, NbIconModule, NbListModule } from '@nebular/theme';
+import { NewspostComponent } from './newspost/newspost.component';
+import { HeadlinepostComponent } from './headlinepost/headlinepost.component';
+import { FormsModule } from "@angular/forms";
 
 
 @NgModule({
-  declarations: [NewsComponent],
+  declarations: [NewsComponent, NewspostComponent, HeadlinepostComponent],
   imports: [
     CommonModule,
     NbCardModule,
@@ -14,7 +17,8 @@ import { NbCardModule, NbButtonModule, NbLayoutModule, NbInputModule, NbIconModu
     NbLayoutModule,
     NbInputModule,
     NbIconModule,
-    NbListModule
+    NbListModule,
+    FormsModule
   ]
 })
 export class NewsModule { }

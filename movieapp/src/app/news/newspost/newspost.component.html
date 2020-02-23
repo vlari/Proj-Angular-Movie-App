@@ -1,0 +1,17 @@
+<nb-card>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{post.urlToImage}}" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-6">
+                <p class="article-date">{{ post.publishedAt | date:'shortDate'}}</p>
+                <h4>{{ post.title }}</h4>
+                <p>{{ post.description }} ({{ post.source.name }})</p>
+            </div>
+        </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <a (click)="goNewsLink(post.url)" href="#" nbButton hero status="warning">See</a>
+    </nb-card-footer>
+</nb-card>
