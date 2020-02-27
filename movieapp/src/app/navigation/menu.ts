@@ -4,7 +4,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     {
         title: 'Movies',
         icon: 'film-outline',
-        link: '/navigation/'
+        link: '/navigation/movies'
     },
     {
         title: 'Trailers',

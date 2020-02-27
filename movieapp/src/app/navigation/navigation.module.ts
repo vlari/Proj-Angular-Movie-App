@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbButtonModule, NbMenuModule, NbActionsModule, NbSearchModule, NbUserModule, NbIconModule, NbContextMenuModule } from '@nebular/theme';
 import { SharedModule } from '../shared/shared.module';
 import { NewsModule } from '../news/news.module';
+import { MoviesModule } from '../movies/movies.module';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { NewsModule } from '../news/news.module';
     NbIconModule,
     NbContextMenuModule,
     SharedModule,
-    NewsModule
+    NewsModule,
+    MoviesModule
   ]
 })
 export class NavigationModule { }

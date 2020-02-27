@@ -1,0 +1,43 @@
+<!-- <div *ngIf="isFiltered" class="upcoming-list ">
+    <div class="">
+        <h2 class="container-title">Top Headlines</h2>
+        <ul class="row">
+            <li class="col-md-4" *ngFor="let newMovie of newMovies">
+                <app-moviecard [upcomingMovie]="newMovie"></app-moviecard>
+            </li>
+        </ul>
+    </div>
+</div> -->
+    <div class="card-list ">
+        <h2 class="container-title">Movies</h2>
+    
+        <ul class="row">
+            <li class="col-md-4 text-center" *ngFor="let movie of movies">
+                <app-moviecard [moviePlaceholder]="movie"></app-moviecard>
+            </li>
+    
+        </ul>
+        <div class="navigation row">
+            <div class="col-md-5">
+                <button 
+                    class="nav-previous"
+                    nbButton 
+                    ghost 
+                    status="warning">
+                    <nb-icon icon="arrow-left"></nb-icon>
+                </button>
+            </div>
+            <div class="col-md-2 text-center">
+                <h4>1</h4>
+            </div>
+            <div class="col-md-5">
+                <button 
+                    class="nav-next"
+                    nbButton 
+                    ghost 
+                    status="warning">
+                    <nb-icon icon="arrow-right"></nb-icon>
+                </button>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,22 @@
+.card-list {
+    .container-title {
+        border-bottom: 2px solid #fa0;
+        width: fit-content;
+        margin-bottom: 30px;
+    }
+
+    li {
+        list-style-type: none;
+        margin-bottom: 65px;
+    }
+
+    .navigation {
+        .nav-previous {
+            float: right;
+        }
+
+        .nav-next {
+            float: left;
+        }
+    }
+}

@@ -13,7 +13,6 @@ import { NewsResponse } from "../shared/models/news-response.model";
 export class NewsComponent implements OnInit {
   headLines: News[];
   news: News[];
-  placeholders = [];
   pageSize: number = 8;
   pageToLoadNext: number = 1;
   loading: boolean = false;

@@ -5,6 +5,9 @@ import { PageNotFoundComponent } from '../shared/page-not-found/page-not-found.c
 import { NewsComponent } from '../news/news.component';
 import { HeadlineResolverService } from '../core/data/resolvers/headline-resolver.service';
 import { NewsResolverService } from '../core/data/resolvers/news-resolver.service';
+import { UpcomingMoviesResolverService } from '../core/data/resolvers/upcoming-movies-resolver.service';
+import { MoviesResolverService } from '../core/data/resolvers/movies-resolver.service';
+import { MovielistComponent } from '../movies/movielist.component';
 
 
 const routes: Routes = [{
@@ -17,6 +20,13 @@ const routes: Routes = [{
         {
           resolvedNews: NewsResolverService,
           resolvedHeadlines: HeadlineResolverService
+        } 
+    },
+    { path: 'movies', 
+      component: MovielistComponent, 
+      resolve: 
+        {
+          resolvedMovies: MoviesResolverService,
         } 
     },
     { path: '', pathMatch: 'full', redirectTo: 'news' },
