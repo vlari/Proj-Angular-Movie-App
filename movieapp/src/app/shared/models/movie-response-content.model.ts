@@ -1,6 +1,6 @@
 export class MovieResponseContent {
     limit: number;
-    movieCount: number;
+    movie_count: number;
     movies: string[];
     pageNumber: number;
 }

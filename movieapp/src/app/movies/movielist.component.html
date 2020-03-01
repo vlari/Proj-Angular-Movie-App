@@ -1,43 +1,78 @@
-<!-- <div *ngIf="isFiltered" class="upcoming-list ">
-    <div class="">
-        <h2 class="container-title">Top Headlines</h2>
-        <ul class="row">
-            <li class="col-md-4" *ngFor="let newMovie of newMovies">
-                <app-moviecard [upcomingMovie]="newMovie"></app-moviecard>
-            </li>
-        </ul>
-    </div>
-</div> -->
-    <div class="card-list ">
-        <h2 class="container-title">Movies</h2>
-    
-        <ul class="row">
-            <li class="col-md-4 text-center" *ngFor="let movie of movies">
-                <app-moviecard [moviePlaceholder]="movie"></app-moviecard>
-            </li>
-    
-        </ul>
-        <div class="navigation row">
-            <div class="col-md-5">
-                <button 
-                    class="nav-previous"
-                    nbButton 
-                    ghost 
-                    status="warning">
-                    <nb-icon icon="arrow-left"></nb-icon>
-                </button>
-            </div>
-            <div class="col-md-2 text-center">
-                <h4>1</h4>
-            </div>
-            <div class="col-md-5">
-                <button 
-                    class="nav-next"
-                    nbButton 
-                    ghost 
-                    status="warning">
-                    <nb-icon icon="arrow-right"></nb-icon>
-                </button>
-            </div>
+<div class="movie-form">
+    <nb-card>
+        <nb-card-body>
+            <form [formGroup]="movieForm" (ngSubmit)="filterMovies()">
+                <div formGroupName="filterData" class="row">
+                    <div class="col-md-12">
+                        <div class="row filter-text">
+                            <div class="col-md-6 offset-md-4">
+                                <input type="text" 
+                                    class="align-middle" 
+                                    nbInput 
+                                    status="warning"
+                                    placeholder="Search Movies"
+                                    formControlName="movieFilter">
+                                    <button
+                                    type="submit"
+                                    class="filter-Button"
+                                    nbButton 
+                                    status="warning">
+                                        <nb-icon icon="search-outline"></nb-icon>
+                                    </button>
+                            </div>
+                        </div>
+                        <div class="row filter-options">
+                            <div class="col-md-3 col-sm-3 col-xs-12 offset-md-1">
+                                <nb-select status="warning" formControlName="genreName">
+                                    <nb-option *ngFor="let option of genreList" [value]="option">
+                                        {{ option }}
+                                    </nb-option>
+                                </nb-select>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <nb-select status="warning" formControlName="orderBy">
+                                    <nb-option *ngFor="let option of orderByList" [value]="option">
+                                        {{ option }}
+                                    </nb-option>
+                                </nb-select>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <nb-select status="warning" formControlName="sortBy">
+                                    <nb-option *ngFor="let option of sortByList" [value]="option">
+                                        {{ option }}
+                                    </nb-option>
+                                </nb-select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </nb-card-body>
+    </nb-card>
+</div>
+<div class="card-list ">
+    <h2 class="container-title">Movies</h2>
+
+    <ul class="row">
+        <li class="col-md-4 text-center" *ngFor="let movie of movies">
+            <app-moviecard [moviePlaceholder]="movie"></app-moviecard>
+        </li>
+
+    </ul>
+    <div class="navigation row">
+        <div class="col-md-5">
+            <button class="nav-previous" nbButton ghost status="warning" (click)="loadPrevious()"
+                [disabled]="blockPrevious">
+                <nb-icon icon="arrow-left"></nb-icon>
+            </button>
+        </div>
+        <div class="col-md-2 text-center">
+            <h4>{{ pageToLoad }}</h4>
+        </div>
+        <div class="col-md-5">
+            <button class="nav-next" nbButton ghost status="warning" (click)="loadNext()" [disabled]="blockNext">
+                <nb-icon icon="arrow-right"></nb-icon>
+            </button>
         </div>
     </div>
+</div>

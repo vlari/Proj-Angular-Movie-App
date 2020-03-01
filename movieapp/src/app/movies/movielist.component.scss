@@ -1,9 +1,22 @@
+.movie-form {
+    form {
+        .filter-text {
+            margin-bottom: 20px;
+
+            .filter-Button {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
 .card-list {
     .container-title {
         border-bottom: 2px solid #fa0;
         width: fit-content;
         margin-bottom: 30px;
     }
+
 
     li {
         list-style-type: none;

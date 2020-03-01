@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { HttpMoviesError } from 'src/app/shared/models/http-movies-error.model';
 import { MoviesResponse } from 'src/app/shared/models/movie-response.model';
 import { catchError } from 'rxjs/operators';
+import { Moviefilter } from 'src/app/shared/models/moviefilter';
 
 const TOTAL_PAGES = 9;
 
@@ -15,6 +16,7 @@ export class MoviesdataService {
   headers: HttpHeaders = new HttpHeaders({
     'Accept': 'application/json'
   });
+  movieFilters: string;
 
   constructor(private http: HttpClient) { }
 
@@ -38,6 +40,11 @@ export class MoviesdataService {
     .pipe(
       catchError(err => this.handleHttpError(err))
     );
+  }
+
+  addFilters(movieFilters: Moviefilter): string {
+    let filters = `&genre=${movieFilters.genre}&order_by=${}&`;
+    return '';
   }
 
   private handleHttpError(error: HttpErrorResponse): Observable<MoviesResponse>{
