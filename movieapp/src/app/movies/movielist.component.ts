@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GenreOptions } from '../shared/models/genre-options.enum';
 import { OrderByOptions } from '../shared/models/order-by-options.enum';
 import { SortByOptions } from '../shared/models/sort-by-options.enum';
+import { Moviefilter } from '../shared/models/moviefilter';
 
 @Component({
   selector: 'app-movielist',
@@ -21,7 +22,6 @@ export class MovielistComponent implements OnInit {
   pageToLoad: number = 1;
   loading: boolean = false;
   filterText: string;
-  isFiltered: boolean = true;
   blockNext: boolean = false;
   blockPrevious: boolean = true;
   movieForm: FormGroup;
@@ -48,7 +48,7 @@ export class MovielistComponent implements OnInit {
 
     this.movieForm = this.fb.group({
       filterData: this.fb.group({
-        movieFilter: ['', [Validators.required]],
+        filterText: ['', [Validators.required]],
         genreName: [''],
         orderBy: [''],
         sortBy: ['']
@@ -83,14 +83,11 @@ export class MovielistComponent implements OnInit {
           this.loading = false;
           
           if (news.data.movie_count === this.pageToLoad) {
-            console.log('block next, free prev');
             this.blockNext = true;
           } else if (this.pageToLoad <= 1) {
-            console.log('block prev, free next');
             this.blockPrevious = true;
           }
           else {
-            console.log('all free');
             this.blockNext = false;
             this.blockPrevious = false;
           }
@@ -98,7 +95,23 @@ export class MovielistComponent implements OnInit {
   }
 
   filterMovies(){
+    if (this.movieForm.valid) {
+      let movieFilters = new Moviefilter(
+          this.movieForm.get('filterData.filterText').value,
+          this.movieForm.get('filterData.genreName').value,
+          this.movieForm.get('filterData.orderBy').value,
+          this.movieForm.get('filterData.sortBy').value);
 
+      this.moviesDataService.addFilters(movieFilters);
+      this.resetSearch();
+      this.pageToLoad = 1;
+      this.onLoadMovies();
+    }
+  }
+
+  resetSearch(){
+    this.blockNext = false;
+    this.blockPrevious = true;
   }
 
 }
