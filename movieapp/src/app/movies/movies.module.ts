@@ -6,10 +6,11 @@ import { MovielistComponent } from './movielist.component';
 import { NbButtonModule, NbCardModule, NbLayoutModule, NbInputModule, NbIconModule, NbListModule, NbSelectModule } from '@nebular/theme';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MoviecardComponent } from './moviecard/moviecard.component';
+import { MoviedetailComponent } from './moviedetail.component';
 
 
 @NgModule({
-  declarations: [MovielistComponent, MoviecardComponent],
+  declarations: [MovielistComponent, MoviecardComponent, MoviedetailComponent],
   imports: [
     CommonModule,
     MoviesRoutingModule,

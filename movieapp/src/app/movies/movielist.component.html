@@ -61,7 +61,11 @@
     </ul>
     <div class="navigation row">
         <div class="col-md-5">
-            <button class="nav-previous" nbButton ghost status="warning" (click)="loadPrevious()"
+            <button class="nav-previous" 
+                nbButton 
+                ghost 
+                status="warning" 
+                (click)="loadPrevious()"
                 [disabled]="blockPrevious">
                 <nb-icon icon="arrow-left"></nb-icon>
             </button>
@@ -70,7 +74,12 @@
             <h4>{{ pageToLoad }}</h4>
         </div>
         <div class="col-md-5">
-            <button class="nav-next" nbButton ghost status="warning" (click)="loadNext()" [disabled]="blockNext">
+            <button class="nav-next" 
+                nbButton 
+                ghost 
+                status="warning" 
+                (click)="loadNext()" 
+                [disabled]="blockNext">
                 <nb-icon icon="arrow-right"></nb-icon>
             </button>
         </div>

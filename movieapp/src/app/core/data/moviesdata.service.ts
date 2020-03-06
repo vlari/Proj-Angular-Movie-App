@@ -16,7 +16,7 @@ export class MoviesdataService {
   headers: HttpHeaders = new HttpHeaders({
     'Accept': 'application/json'
   });
-  movieFilters: string;
+  movieFilters: string = '';
 
   constructor(private http: HttpClient) { }
 
@@ -34,20 +34,33 @@ export class MoviesdataService {
   getMovies(pageSize: number = 9, page: number = 1): Observable<MoviesResponse | HttpMoviesError> {
     let lengthOption = this.getLengthOptions(pageSize, page);
     let filters = this.getMovieFilters();
+    console.log(filters);
     if (!filters) {
       filters = '';  
     } 
 
-    return this.http.get<MoviesResponse>(`${this.baseUri}/list_movies.json?${lengthOption}${filters}`, {
+    let movieList = this.http.get<MoviesResponse>(`${this.baseUri}/list_movies.json?${lengthOption}${filters}`, {
       headers: this.headers
     })
     .pipe(
       catchError(err => this.handleHttpError(err))
     );
+    this.movieFilters = '';
+
+    return movieList;
   }
 
   addFilters(movieFilters: Moviefilter): void {
-    this.movieFilters = `&query_term=${movieFilters.query_term}&genre=${movieFilters.genre}&order_by=${movieFilters.order_by}&sort_by=${movieFilters.sort_by}`;
+    let filterValue;
+
+    for (const filter in movieFilters) {
+      filterValue = movieFilters[`${filter}`];
+      if (filterValue) {
+        this.movieFilters += `&${filter}=${filterValue}`;
+      }
+    }
+
+    // this.movieFilters = `&query_term=${movieFilters.query_term}&genre=${movieFilters.genre}&order_by=${movieFilters.order_by}&sort_by=${movieFilters.sort_by}`;
   }
 
   getMovieFilters(): string {
