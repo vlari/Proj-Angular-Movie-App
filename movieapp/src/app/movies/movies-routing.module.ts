@@ -1,16 +1,25 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MovielistComponent } from './movielist.component';
-import { MoviedetailComponent } from './moviedetail.component';
+import { MoviedetailComponent } from './moviedetail/moviedetail.component';
+import { MoviesComponent } from './movies.component';
+import { MoviesResolverService } from '../core/data/resolvers/movies-resolver.service';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: MovielistComponent,
+    component: MoviesComponent,
     children: [
       {
-        path: 'detail',
+        path: 'list',
+        component: MovielistComponent,
+        resolve: {
+          resolvedMovies: MoviesResolverService
+        }
+      },
+      {
+        path: 'details',
         component: MoviedetailComponent
       }
     ]
