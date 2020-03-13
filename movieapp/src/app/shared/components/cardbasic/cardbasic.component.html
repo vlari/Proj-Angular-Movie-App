@@ -1,0 +1,17 @@
+<nb-card>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-md-12">
+                <img src="{{data.urlImage}}" class="img-fluid" alt="">
+                <h4 class="headline-title">{{ data.title }}</h4>
+            </div>
+        </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <div class="row">
+            <div class="col-md-12">
+                <a (click)="goToLink(data.url)" fullwidth nbButton hero status="warning">See</a>
+            </div>
+        </div>
+    </nb-card-footer>
+</nb-card>

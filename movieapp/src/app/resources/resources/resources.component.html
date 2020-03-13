@@ -1,1 +1,7 @@
-<p>resources works!</p>
+<div class="resources-container">
+    <ul class="row">
+        <li class="col-md-4" *ngFor="let resource of resources">
+            <app-cardbasic [data]="resource"></app-cardbasic>
+        </li>
+    </ul>
+</div>

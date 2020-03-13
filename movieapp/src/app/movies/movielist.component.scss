@@ -18,9 +18,15 @@
     }
 
 
+
+
     li {
         list-style-type: none;
         margin-bottom: 65px;
+        
+        a {
+            text-decoration: none;
+        }
     }
 
     .navigation {

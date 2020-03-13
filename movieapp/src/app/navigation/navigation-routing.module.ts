@@ -5,6 +5,7 @@ import { PageNotFoundComponent } from '../shared/page-not-found/page-not-found.c
 import { NewsComponent } from '../news/news.component';
 import { HeadlineResolverService } from '../core/data/resolvers/headline-resolver.service';
 import { NewsResolverService } from '../core/data/resolvers/news-resolver.service';
+import { ResourcesComponent } from '../resources/resources/resources.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
         path: 'movies',
         loadChildren: () =>
           import('../movies/movies.module').then(m => m.MoviesModule)
+      },
+      {
+        path: 'links',
+        component: ResourcesComponent
       },
       { path: '', pathMatch: 'full', redirectTo: 'news' },
       { path: '**', component: PageNotFoundComponent }

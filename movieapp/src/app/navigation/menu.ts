@@ -14,6 +14,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
     {
         title: 'Links',
         icon: 'plus-circle-outline',
-        link: '/navigation/'
+        link: '/navigation/resources'
     }
 ];

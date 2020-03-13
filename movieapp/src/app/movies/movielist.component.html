@@ -55,7 +55,9 @@
 
     <ul class="row">
         <li class="col-md-4 text-center" *ngFor="let movie of movies">
-            <app-moviecard [moviePlaceholder]="movie"></app-moviecard>
+            <a href="">
+                <app-moviecard [moviePlaceholder]="movie"></app-moviecard>
+            </a>
         </li>
 
     </ul>

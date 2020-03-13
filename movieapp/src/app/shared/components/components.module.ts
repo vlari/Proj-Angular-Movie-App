@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CardbasicComponent } from './cardbasic/cardbasic.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [CardbasicComponent],
   imports: [
     CommonModule
   ]

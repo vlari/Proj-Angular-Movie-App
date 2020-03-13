@@ -9,6 +9,7 @@ import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbButtonModule, NbMenuM
 import { SharedModule } from '../shared/shared.module';
 import { NewsModule } from '../news/news.module';
 import { MoviesModule } from '../movies/movies.module';
+import { ResourcesModule } from '../resources/resources.module';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { MoviesModule } from '../movies/movies.module';
     NbContextMenuModule,
     SharedModule,
     NewsModule,
-    MoviesModule
+    MoviesModule,
+    ResourcesModule
   ]
 })
 export class NavigationModule { }
