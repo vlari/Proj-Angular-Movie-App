@@ -4,7 +4,7 @@ import { catchError } from "rxjs/operators";
 import { HttpNewsError } from 'src/app/shared/models/httpnewserror';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { MoviesdataService } from '../moviesdata.service';
-import { MoviesResponse } from 'src/app/shared/models/movie-response.model';
+import { MoviesResponse } from 'src/app/shared/models/movies-response.model';
 
 @Injectable({
     providedIn: 'root'

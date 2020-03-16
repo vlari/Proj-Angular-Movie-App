@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpErrorResponse, HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { HttpMoviesError } from 'src/app/shared/models/http-movies-error.model';
-import { MoviesResponse } from 'src/app/shared/models/movie-response.model';
+import { MoviesResponse } from 'src/app/shared/models/movies-response.model';
 import { catchError, filter } from 'rxjs/operators';
 import { Moviefilter } from 'src/app/shared/models/moviefilter';
+import { MovieDetailResponse } from 'src/app/shared/models/movie-detail-response.model';
 
 const TOTAL_PAGES = 9;
 
@@ -48,6 +49,16 @@ export class MoviesdataService {
     this.movieFilters = '';
 
     return movieList;
+  }
+
+  // Get Movie by Id
+  getMovieById(id: string): Observable<MovieDetailResponse | HttpMoviesError> {
+    return this.http.get<MoviesResponse>(`${this.baseUri}/movie_details.json?movie_id=${id}`, {
+      headers: this.headers
+    })
+    .pipe(
+      catchError(err => this.handleHttpError(err))
+    );
   }
 
   addFilters(movieFilters: Moviefilter): void {

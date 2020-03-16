@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Movie } from '../shared/models/movie.model';
 import { MoviesdataService } from '../core/data/moviesdata.service';
 import { ActivatedRoute } from '@angular/router';
-import { MoviesResponse } from '../shared/models/movie-response.model';
+import { MoviesResponse } from '../shared/models/movies-response.model';
 import { HttpMoviesError } from '../shared/models/http-movies-error.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GenreOptions } from '../shared/models/genre-options.enum';
@@ -55,7 +55,7 @@ export class MovielistComponent implements OnInit {
       })
     });
 
-    this.genreList = Object.keys(GenreOptions);
+    this.genreList = GenreOptions.map(o => o.name);
     this.orderByList = Object.keys(OrderByOptions);
     this.sortByList = Object.keys(SortByOptions);
     

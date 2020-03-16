@@ -10,7 +10,10 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [ResourcesComponent],
   imports: [
     CommonModule,
-    NbCardModule,
+    SharedModule
+  ],
+  exports: [
+    CommonModule,
     SharedModule
   ]
 })

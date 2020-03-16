@@ -4,18 +4,18 @@ import { catchError } from "rxjs/operators";
 import { HttpNewsError } from 'src/app/shared/models/httpnewserror';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { MoviesdataService } from '../moviesdata.service';
-import { MoviesResponse } from 'src/app/shared/models/movies-response.model';
+import { MovieDetailResponse } from 'src/app/shared/models/movie-detail-response.model';
 
 @Injectable({
     providedIn: 'root'
 })
-export class UpcomingMoviesResolverService implements Resolve<MoviesResponse | HttpNewsError> {
+export class SingleMovieResolver implements Resolve<MovieDetailResponse | HttpNewsError> {
 
     constructor(private dataService: MoviesdataService) {
     }
 
-    resolve(route: ActivatedRouteSnapshot): Observable<MoviesResponse | HttpNewsError> {
-        return this.dataService.getUpcomingMovies()
+    resolve(route: ActivatedRouteSnapshot): Observable<MovieDetailResponse | HttpNewsError> {
+        return this.dataService.getMovieById(route.paramMap.get('id'))
             .pipe(
                 catchError(err => of(err))
             );

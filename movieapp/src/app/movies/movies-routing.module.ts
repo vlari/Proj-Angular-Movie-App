@@ -4,6 +4,7 @@ import { MovielistComponent } from './movielist.component';
 import { MoviedetailComponent } from './moviedetail/moviedetail.component';
 import { MoviesComponent } from './movies.component';
 import { MoviesResolverService } from '../core/data/resolvers/movies-resolver.service';
+import { SingleMovieResolver } from '../core/data/resolvers/single-movie-resolver.service';
 
 
 const routes: Routes = [
@@ -19,8 +20,11 @@ const routes: Routes = [
         }
       },
       {
-        path: 'details',
-        component: MoviedetailComponent
+        path: ':id',
+        component: MoviedetailComponent,
+        resolve: {
+          resolvedMovie: SingleMovieResolver
+        }
       }
     ]
   }

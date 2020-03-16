@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NbIconLibraries } from "@nebular/theme";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'movieapp';
+
+  constructor(private iconLibraries: NbIconLibraries) {
+    this.iconLibraries.registerFontPack('font-awesome', { iconClassPrefix: 'fa'});
+  }
 }

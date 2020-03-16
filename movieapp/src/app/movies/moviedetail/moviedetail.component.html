@@ -1,1 +1,36 @@
-<p>moviedetail works!</p>
+<div class="moviedetail-container">
+    <h2 class="movie-title text-center">{{ movie.title }}</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <img [src]="movie.large_cover_image" [alt]="movie.background_image">
+        </div>
+        <div class="col-md-6 text-center">
+            <div class="row">
+                <div class="col-md-4 movie-rating">
+                    <div class="movie-detail">
+                        <p class="header-text">Rating:</p> <span>{{ movie.rating }}</span>
+                    </div>
+                </div>
+                <div class="col-md-4 movie-year">
+                    <div class="movie-detail">
+                        <p class="header-text">Year:</p> <span>{{ movie.year }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 movie-genres">
+                    <div class="movie-genres">
+                        <div *ngFor="let genre of genres">
+                            <nb-icon [icon]="genre.icon" pack="font-awesome"></nb-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p>{{ movie.description_full }}</p>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,3 @@
-import { MovieResponseContent } from './movie-response-content.model';
-
-export class MoviesResponse {
-    data: MovieResponseContent;
-
+export interface MovieResponse {
+    data: any;
 }

@@ -1,0 +1,16 @@
+.resources-container {
+.container-title {
+    border-bottom: 2px solid #fa0;
+    width: fit-content;
+}
+
+  ul {
+    padding: 0px;
+    li {
+      list-style-type: none;
+      nb-card {
+        height: 273px !important;
+      }
+    }
+  }
+}

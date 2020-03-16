@@ -1,0 +1,24 @@
+.moviedetail-container {
+    .movie-title {
+        border-bottom: 2px solid #fa0;
+        margin-bottom: 30px;
+    }
+
+    .header-text {
+        color: #fa0;
+    }
+    
+    img {
+        height: 500px;
+    }
+    
+    .movie-detail {
+        margin: 20px 0px 20px 0px;
+        font-size: 32px;
+        
+        p {
+            display: inline;
+            font-size: 32px;
+        }
+    }
+}
