@@ -36,11 +36,11 @@ export var GenreOptions = [
     },
     {
         name: 'drama',
-        icon: ''
+        icon: 'star'
     },
     {
         name: 'mystery',
-        icon: ''
+        icon: 'star'
     },
     {
         name: 'crime',
@@ -48,7 +48,7 @@ export var GenreOptions = [
     },
     {
         name: 'animation',
-        icon: ''
+        icon: 'star'
     },
     {
         name: 'adventure',

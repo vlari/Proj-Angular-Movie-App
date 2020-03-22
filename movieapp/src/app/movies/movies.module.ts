@@ -3,7 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { MoviesRoutingModule } from './movies-routing.module';
 import { MovielistComponent } from './movielist.component';
-import { NbButtonModule, NbCardModule, NbLayoutModule, NbInputModule, NbIconModule, NbListModule, NbSelectModule } from '@nebular/theme';
+import { 
+  NbButtonModule, 
+  NbCardModule, 
+  NbLayoutModule, 
+  NbInputModule, 
+  NbIconModule, 
+  NbListModule, 
+  NbSelectModule, 
+  NbSpinnerModule } from '@nebular/theme';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MoviecardComponent } from './moviecard/moviecard.component';
 import { MoviedetailComponent } from './moviedetail/moviedetail.component';
@@ -22,6 +30,7 @@ import { MoviesComponent } from './movies.component';
     NbIconModule,
     NbListModule,
     NbSelectModule,
+    NbSpinnerModule,
     FormsModule,
     ReactiveFormsModule
   ]

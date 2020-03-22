@@ -23,21 +23,30 @@
                         </div>
                         <div class="row filter-options">
                             <div class="col-md-3 col-sm-3 col-xs-12 offset-md-1">
-                                <nb-select status="warning" formControlName="genreName">
+                                <nb-select 
+                                    status="warning" 
+                                    formControlName="genreName"
+                                    placeholder="Genre">
                                     <nb-option *ngFor="let option of genreList" [value]="option">
                                         {{ option }}
                                     </nb-option>
                                 </nb-select>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <nb-select status="warning" formControlName="orderBy">
+                                <nb-select 
+                                    status="warning" 
+                                    formControlName="orderBy"
+                                    placeholder="Order By">
                                     <nb-option *ngFor="let option of orderByList" [value]="option">
                                         {{ option }}
                                     </nb-option>
                                 </nb-select>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <nb-select status="warning" formControlName="sortBy">
+                                <nb-select 
+                                    status="warning" 
+                                    formControlName="sortBy"
+                                    placeholder="Sort By">
                                     <nb-option *ngFor="let option of sortByList" [value]="option">
                                         {{ option }}
                                     </nb-option>

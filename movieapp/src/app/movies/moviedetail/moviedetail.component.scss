@@ -1,6 +1,6 @@
 .moviedetail-container {
     .movie-title {
-        border-bottom: 2px solid #fa0;
+        color: #fa0;
         margin-bottom: 30px;
     }
 
@@ -8,8 +8,12 @@
         color: #fa0;
     }
     
-    img {
-        height: 500px;
+    nb-card {
+        img {
+            height: 500px;
+            margin-left: 5%;
+        }
+
     }
     
     .movie-detail {
@@ -20,5 +24,9 @@
             display: inline;
             font-size: 32px;
         }
+    }
+
+    .cast-list {
+        list-style: none;
     }
 }

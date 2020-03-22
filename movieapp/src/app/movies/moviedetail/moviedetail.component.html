@@ -1,10 +1,19 @@
 <div class="moviedetail-container">
     <h2 class="movie-title text-center">{{ movie.title }}</h2>
     <div class="row">
-        <div class="col-md-6">
-            <img [src]="movie.large_cover_image" [alt]="movie.background_image">
+        <div class="col-md-5">
+            <nb-card 
+                [nbSpinner]="true" 
+                nbSpinnerSize="giant" 
+                nbSpinnerStatus="primary">
+                <nb-card-body>
+                    <img 
+                        [src]="movie.large_cover_image" 
+                        [alt]="movie.background_image">
+                </nb-card-body>
+              </nb-card>
         </div>
-        <div class="col-md-6 text-center">
+        <div class="col-md-6">
             <div class="row">
                 <div class="col-md-4 movie-rating">
                     <div class="movie-detail">
@@ -18,6 +27,22 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-md-12">
+                    <h2 class="header-text">Plot</h2>
+                    <p class="text-left">{{ movie.description_full }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="header-text">Cast</h2> 
+                    <ul class="cast-list">
+                        <li *ngFor="let cast of movie.cast">
+                            <a  href="">{{ cast.name }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- <div class="row">
                 <div class="col-md-4 movie-genres">
                     <div class="movie-genres">
                         <div *ngFor="let genre of genres">
@@ -25,12 +50,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <p>{{ movie.description_full }}</p>
+            </div> -->
         </div>
     </div>
 </div>

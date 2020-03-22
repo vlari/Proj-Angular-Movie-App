@@ -6,6 +6,7 @@ import { MoviesResponse } from 'src/app/shared/models/movies-response.model';
 import { catchError, filter } from 'rxjs/operators';
 import { Moviefilter } from 'src/app/shared/models/moviefilter';
 import { MovieDetailResponse } from 'src/app/shared/models/movie-detail-response.model';
+import { GenreOptions } from 'src/app/shared/models/genre-options.enum';
 
 const TOTAL_PAGES = 9;
 
@@ -21,7 +22,7 @@ export class MoviesdataService {
 
   constructor(private http: HttpClient) { }
 
-  // Get upcoming movie
+  // Get upcoming movies
   getUpcomingMovies(): Observable<MoviesResponse | HttpMoviesError> {
     return this.http.get<MoviesResponse>(`${this.baseUri}/list_upcoming.json`, {
       headers: this.headers
@@ -53,12 +54,16 @@ export class MoviesdataService {
 
   // Get Movie by Id
   getMovieById(id: string): Observable<MovieDetailResponse | HttpMoviesError> {
-    return this.http.get<MoviesResponse>(`${this.baseUri}/movie_details.json?movie_id=${id}`, {
+    return this.http.get<MoviesResponse>(`${this.baseUri}/movie_details.json?movie_id=${id}&with_cast=true`, {
       headers: this.headers
     })
     .pipe(
       catchError(err => this.handleHttpError(err))
     );
+  }
+
+  getMovieGenres(){
+    return GenreOptions;
   }
 
   addFilters(movieFilters: Moviefilter): void {

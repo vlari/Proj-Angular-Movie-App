@@ -4,7 +4,7 @@ import { MoviesdataService } from 'src/app/core/data/moviesdata.service';
 import { Movie } from 'src/app/shared/models/movie.model';
 import { MoviesResponse } from 'src/app/shared/models/movies-response.model';
 import { HttpMoviesError } from 'src/app/shared/models/http-movies-error.model';
-import { GenreOptions } from 'src/app/shared/models/genre-options.enum';
+// import { GenreOptions } from 'src/app/shared/models/genre-options.enum';
 
 @Component({
   selector: 'app-moviedetail',
@@ -13,7 +13,7 @@ import { GenreOptions } from 'src/app/shared/models/genre-options.enum';
 })
 export class MoviedetailComponent implements OnInit {
   movie: any;
-  genres: any = [];
+  genres: any;
 
   constructor(private route: ActivatedRoute,
               private movieDataService: MoviesdataService) { }
@@ -28,18 +28,15 @@ export class MoviedetailComponent implements OnInit {
       this.movie = resolvedMovie.data.movie;
     }
     
-    this.genres = this.movie.genres.map(o => {
-      let option = GenreOptions.find(g => g.name === o);
-      console.log('o', o);
-      console.log(option);
-
-      if(option){
-        this.genres.push(option);
-      }
-    })
-
-
-
+    this.genres = [];
+    // this.genres = this.movie.genres.map(o => {
+    //   let option = GenreOptions.find(g => g.name === o.toLowerCase());
+      
+    //   if(option){
+    //     this.genres.push(option);
+    //     console.log(this.genres);
+    //   }
+    // })
   }
 
   
