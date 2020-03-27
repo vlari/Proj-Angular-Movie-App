@@ -14,6 +14,7 @@ import { HttpMoviesError } from 'src/app/shared/models/http-movies-error.model';
 export class MoviedetailComponent implements OnInit {
   movie: any;
   genres: any;
+  isImageLoading: boolean = true;
 
   constructor(private route: ActivatedRoute,
               private movieDataService: MoviesdataService) { }
@@ -38,7 +39,5 @@ export class MoviedetailComponent implements OnInit {
     //   }
     // })
   }
-
-  
 
 }

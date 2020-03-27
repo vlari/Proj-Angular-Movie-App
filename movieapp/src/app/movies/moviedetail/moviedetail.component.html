@@ -1,21 +1,22 @@
 <div class="moviedetail-container">
     <h2 class="movie-title text-center">{{ movie.title }}</h2>
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-sm-12 col-md-5 col-lg-5">
             <nb-card 
-                [nbSpinner]="true" 
+                [nbSpinner]="isImageLoading" 
                 nbSpinnerSize="giant" 
-                nbSpinnerStatus="primary">
+                nbSpinnerStatus="warning">
                 <nb-card-body>
                     <img 
                         [src]="movie.large_cover_image" 
-                        [alt]="movie.background_image">
+                        [alt]="movie.background_image"
+                        (load)="isImageLoading=false">
                 </nb-card-body>
               </nb-card>
         </div>
-        <div class="col-md-6">
+        <div class="col-sm-12 col-md-6 col-lg-6">
             <div class="row">
-                <div class="col-md-4 movie-rating">
+                <div class="col-sm-12 col-md-4 movie-rating">
                     <div class="movie-detail">
                         <p class="header-text">Rating:</p> <span>{{ movie.rating }}</span>
                     </div>
@@ -27,7 +28,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-sm-12 col-md-12">
                     <h2 class="header-text">Plot</h2>
                     <p class="text-left">{{ movie.description_full }}</p>
                 </div>

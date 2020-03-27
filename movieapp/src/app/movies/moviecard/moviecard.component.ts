@@ -8,6 +8,7 @@ import { Movie } from 'src/app/shared/models/movie.model';
 })
 export class MoviecardComponent implements OnInit {
   @Input() moviePlaceholder: Movie;
+  isImageLoading: boolean = true;
 
   constructor() { }
 

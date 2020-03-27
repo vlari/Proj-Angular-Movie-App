@@ -1,8 +1,15 @@
-<nb-card>
+<nb-card 
+    [nbSpinner]="isImageLoading" 
+    nbSpinnerSize="giant" 
+    nbSpinnerStatus="warning">
     <nb-card-body>
         <div class="row">
             <div class="col-md-12">
-                <img src="{{headLinePost.urlToImage}}" class="img-fluid" alt="">
+                <img 
+                    src="{{headLinePost.urlToImage}}" 
+                    class="img-fluid" 
+                    alt="{{headLinePost.urlToImage}}"
+                    (load)="isImageLoading=false">
                 <h4 class="headline-title">{{ headLinePost.title }}</h4>
             </div>
         </div>

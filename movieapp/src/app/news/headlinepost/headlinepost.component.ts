@@ -8,6 +8,7 @@ import { News } from 'src/app/shared/models/news.model';
 })
 export class HeadlinepostComponent implements OnInit {
   @Input() headLinePost: News;
+  isImageLoading: boolean = true;
 
   constructor() { }
 

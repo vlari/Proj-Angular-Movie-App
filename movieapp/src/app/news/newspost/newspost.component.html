@@ -1,8 +1,15 @@
-<nb-card>
+<nb-card 
+    [nbSpinner]="isImageLoading" 
+    nbSpinnerSize="giant" 
+    nbSpinnerStatus="warning">
     <nb-card-body>
         <div class="row">
             <div class="col-md-6">
-                <img src="{{post.urlToImage}}" class="img-fluid" alt="">
+                <img 
+                    src="{{post.urlToImage}}" 
+                    class="img-fluid" 
+                    alt="{{post.urlToImage}}"
+                    (load)="isImageLoading=false">
             </div>
             <div class="col-md-6">
                 <p class="article-date">{{ post.publishedAt | date:'shortDate'}}</p>

@@ -59,9 +59,8 @@
         </nb-card-body>
     </nb-card>
 </div>
-<div class="card-list ">
+<div class="card-list">
     <h2 class="container-title">Movies</h2>
-
     <ul class="row">
         <li class="col-md-4 text-center" *ngFor="let movie of movies">
             <a [routerLink]="['/navigation/movies', movie.id]" routerLinkActive="router-link-active" >
