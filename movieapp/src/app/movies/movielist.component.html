@@ -3,9 +3,10 @@
         <nb-card-body>
             <form [formGroup]="movieForm" (ngSubmit)="filterMovies()">
                 <div formGroupName="filterData" class="row">
-                    <div class="col-md-12">
+                    
+                    <div class="col-md-12 col-12">
                         <div class="row filter-text">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-8 col-sm-8 col-8">
                                 <input type="text" 
                                     class="align-middle" 
                                     nbInput 
@@ -16,13 +17,14 @@
                                     type="submit"
                                     class="filter-Button"
                                     nbButton 
-                                    status="warning">
+                                    status="warning"
+                                    [disabled]="!movieForm.valid">
                                         <nb-icon icon="search-outline"></nb-icon>
                                     </button>
                             </div>
                         </div>
                         <div class="row filter-options">
-                            <div class="col-md-3 col-sm-3 col-xs-12 offset-md-1">
+                            <div class="col-md-4 col-sm-4 col-12">
                                 <nb-select 
                                     status="warning" 
                                     formControlName="genreName"
@@ -32,7 +34,7 @@
                                     </nb-option>
                                 </nb-select>
                             </div>
-                            <div class="col-md-3 col-sm-3 col-xs-12">
+                            <div class="col-md-4 col-sm-4 col-12">
                                 <nb-select 
                                     status="warning" 
                                     formControlName="orderBy"
@@ -42,7 +44,7 @@
                                     </nb-option>
                                 </nb-select>
                             </div>
-                            <div class="col-md-3 col-sm-3 col-xs-12">
+                            <div class="col-md-4 col-sm-4 col-12">
                                 <nb-select 
                                     status="warning" 
                                     formControlName="sortBy"
