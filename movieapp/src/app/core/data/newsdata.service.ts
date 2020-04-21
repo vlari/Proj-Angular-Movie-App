@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { environment } from "../../../environments/environment";
-import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
-import { Observable, throwError } from "rxjs";
-import { catchError } from "rxjs/operators";
+import { environment } from '../../../environments/environment';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { HttpNewsError } from 'src/app/shared/models/httpnewserror';
 import { NewsResponse } from 'src/app/shared/models/news-response.model';
 

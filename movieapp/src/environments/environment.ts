@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  newsApiKey: ''
+  newsApiKey: 'cab70f9cee264fc793e3c20d549ae930',
+  youtubeApiKey: {
+    frameApiUrl: 'https://www.youtube.com/iframe_api'
+  }
 };
 
 /*

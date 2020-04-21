@@ -14,7 +14,7 @@ const TOTAL_PAGES = 9;
   providedIn: 'root'
 })
 export class MoviesdataService {
-  baseUri: string = 'https://yts.mx/api/v2';
+  baseUri = 'https://yts.mx/api/v2';
   headers: HttpHeaders = new HttpHeaders({
     'Accept': 'application/json'
   });

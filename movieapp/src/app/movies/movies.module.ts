@@ -1,25 +1,31 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { MoviesRoutingModule } from './movies-routing.module';
-import { MovielistComponent } from './movielist.component';
-import { 
-  NbButtonModule, 
-  NbCardModule, 
-  NbLayoutModule, 
-  NbInputModule, 
-  NbIconModule, 
-  NbListModule, 
-  NbSelectModule, 
-  NbSpinnerModule } from '@nebular/theme';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MoviecardComponent } from './moviecard/moviecard.component';
-import { MoviedetailComponent } from './moviedetail/moviedetail.component';
-import { MoviesComponent } from './movies.component';
-
+import { MoviesRoutingModule } from "./movies-routing.module";
+import { MovielistComponent } from "./movielist.component";
+import {
+  NbButtonModule,
+  NbCardModule,
+  NbLayoutModule,
+  NbInputModule,
+  NbIconModule,
+  NbListModule,
+  NbSelectModule,
+  NbSpinnerModule,
+} from "@nebular/theme";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MoviecardComponent } from "./moviecard/moviecard.component";
+import { MoviedetailComponent } from "./moviedetail/moviedetail.component";
+import { MoviesComponent } from "./movies.component";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
-  declarations: [MovielistComponent, MoviecardComponent, MoviedetailComponent, MoviesComponent],
+  declarations: [
+    MovielistComponent,
+    MoviecardComponent,
+    MoviedetailComponent,
+    MoviesComponent,
+  ],
   imports: [
     CommonModule,
     MoviesRoutingModule,
@@ -32,7 +38,8 @@ import { MoviesComponent } from './movies.component';
     NbSelectModule,
     NbSpinnerModule,
     FormsModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    SharedModule,
+  ],
 })
-export class MoviesModule { }
+export class MoviesModule {}

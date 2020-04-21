@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from "rxjs";
-import { catchError } from "rxjs/operators";
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { HttpNewsError } from 'src/app/shared/models/httpnewserror';
 import { NewsdataService } from '../newsdata.service';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';

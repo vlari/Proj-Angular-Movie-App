@@ -1,4 +1,4 @@
-export enum OrderByOptions{
-    desc = 'desc',
-    asc = 'asc'
+export enum OrderByOptions {
+  desc = 'desc',
+  asc = 'asc',
 }

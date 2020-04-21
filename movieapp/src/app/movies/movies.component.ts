@@ -1,7 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: "app-movies",
+  selector: 'app-movies',
   template: `
     <router-outlet></router-outlet>
   `,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Resource } from 'src/app/shared/models/resource.model';
-import { resourceData } from "../resourceData";
+import { resourceData } from '../resourceData';
 
 @Component({
   selector: 'app-resources',

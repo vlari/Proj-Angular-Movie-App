@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from "rxjs";
-import { catchError } from "rxjs/operators";
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { HttpNewsError } from 'src/app/shared/models/httpnewserror';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { MoviesdataService } from '../moviesdata.service';

@@ -2,18 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardbasicComponent } from './cardbasic/cardbasic.component';
 import { NbCardModule, NbButtonModule } from '@nebular/theme';
-
+import { YoutubeplayerComponent } from './youtubeplayer/youtubeplayer.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 
 @NgModule({
-  declarations: [CardbasicComponent],
+  declarations: [CardbasicComponent, YoutubeplayerComponent],
   imports: [
     CommonModule,
     NbCardModule,
-    NbButtonModule
+    NbButtonModule,
+    YouTubePlayerModule
   ],
   exports: [
-    CardbasicComponent
+    CardbasicComponent,
+    YoutubeplayerComponent
   ]
 })
 export class ComponentsModule { }

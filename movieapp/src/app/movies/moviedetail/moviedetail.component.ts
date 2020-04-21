@@ -15,18 +15,21 @@ export class MoviedetailComponent implements OnInit {
   movie: any;
   genres: any;
   isImageLoading: boolean = true;
+  hasMovieTrailer: string = '';
+  myVideo = 'https://www.youtube.com/watch?v=EIYymBQ05S8';
 
   constructor(private route: ActivatedRoute,
               private movieDataService: MoviesdataService) { }
 
   ngOnInit() {
     let resolvedMovie: any | HttpMoviesError = this.route.snapshot
-      .data["resolvedMovie"];
+      .data['resolvedMovie'];
 
     if (resolvedMovie instanceof HttpMoviesError) {
       console.log('Error');
     } else {
       this.movie = resolvedMovie.data.movie;
+
     }
     
     this.genres = [];
